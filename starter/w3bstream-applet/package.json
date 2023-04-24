@@ -1,5 +1,5 @@
 {
-  "name": "energy-meter",
+  "name": "applet",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
