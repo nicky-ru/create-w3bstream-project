@@ -1,4 +1,4 @@
-import { Simulator } from "@nick-iotex/w3bstream-http-client-simulator";
+import { Simulator } from "@w3bstream/w3bstream-http-client-simulator";
 
 import dataGenerator from "./generator";
 import config from "./config";

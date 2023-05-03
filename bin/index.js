@@ -4,23 +4,40 @@ const fs = require("fs-extra");
 const path = require("path");
 const { spawnSync } = require("child_process");
 const ora = require("ora");
+const yargs = require("yargs/yargs");
+const { hideBin } = require("yargs/helpers");
+
+const argv = yargs(hideBin(process.argv))
+  .option("template", {
+    alias: "t",
+    type: "string",
+    description: "Choose a template",
+    choices: ["default", "light"],
+  })
+  .demandCommand(1, "Please provide a project name").argv;
 
 const projectName = process.argv[2] || "simulator-app";
 const projectPath = path.join(process.cwd(), projectName);
+const selectedTemplate = argv.template || "default";
 
 // Create project directory
 fs.ensureDirSync(projectPath);
 
 const subdirs = ["simulator", "w3bstream-applet", "blockchain"];
 
-const TEMPLATE_DIR_NAME = "../starter";
+const TEMPLATE_DIR_NAME = "../templates";
 
 // Copy template files
-const templatePath = path.join(__dirname, TEMPLATE_DIR_NAME);
+const templatePath = path.join(__dirname, TEMPLATE_DIR_NAME, selectedTemplate);
 fs.copySync(templatePath, projectPath);
 
 subdirs.forEach((subdir) => {
-  const templateSubdirPath = path.join(__dirname, TEMPLATE_DIR_NAME, subdir);
+  const templateSubdirPath = path.join(
+    __dirname,
+    TEMPLATE_DIR_NAME,
+    selectedTemplate,
+    subdir
+  );
   const projectSubdirPath = path.join(projectPath, subdir);
   fs.copySync(templateSubdirPath, projectSubdirPath);
 });
