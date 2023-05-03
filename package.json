@@ -1,6 +1,6 @@
 {
   "name": "create-w3bstream-applet-as",
-  "version": "0.0.2",
+  "version": "1.1.2",
   "description": "A CLI tool to bootstrap a w3bstream applet written in AssemblyScript",
   "main": "bin/index.js",
   "scripts": {
