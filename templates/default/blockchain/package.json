@@ -4,5 +4,12 @@
     "@nomicfoundation/hardhat-toolbox": "^2.0.1",
     "@openzeppelin/contracts": "^4.8.1",
     "dotenv": "^16.0.3"
+  },
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "hardhat deploy-all",
+    "deploy:testnet": "hardhat deploy-all --network testnet",
+    "deploy:mainnet": "hardhat deploy-all --network mainnet"
   }
 }
