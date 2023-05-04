@@ -1,4 +1,4 @@
-import { DataPointGenerator } from "@nick-iotex/w3bstream-http-client-simulator";
+import { DataPointGenerator } from "@w3bstream/w3bstream-http-client-simulator";
 
 type EnergyDataPoint = {
   sensor_reading: number;
