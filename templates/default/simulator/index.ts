@@ -5,6 +5,8 @@ import config from "./config";
 
 const { PUB_ID, PUB_TOKEN, W3BSTREAM_ENDPOINT, EVENT_TYPE, EVENT_ID } = config;
 
+const MSG_INTERVAL_SEC = 10;
+
 const simulator = new Simulator(
   PUB_ID,
   PUB_TOKEN,
@@ -20,7 +22,7 @@ simulator.dataPointGenerator = dataGenerator;
 async function start() {
   try {
     console.log("Starting simulator");
-    simulator.powerOn(5);
+    simulator.powerOn(MSG_INTERVAL_SEC)
   } catch (error) {
     console.log(error);
   }
