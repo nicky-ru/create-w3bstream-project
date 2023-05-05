@@ -3,9 +3,7 @@ import { Simulator } from "@w3bstream/w3bstream-http-client-simulator";
 import dataGenerator from "./generator";
 import config from "./config";
 
-const { PUB_ID, PUB_TOKEN, W3BSTREAM_ENDPOINT } = config;
-const EVENT_TYPE = "DATA";
-const EVENT_ID = "DATA";
+const { PUB_ID, PUB_TOKEN, W3BSTREAM_ENDPOINT, EVENT_TYPE, EVENT_ID } = config;
 
 const simulator = new Simulator(
   PUB_ID,
