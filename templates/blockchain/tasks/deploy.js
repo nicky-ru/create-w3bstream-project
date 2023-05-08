@@ -1,4 +1,3 @@
-require("./eco-token");
 require("./device-registry");
 require("./device-binding");
 
@@ -7,10 +6,6 @@ task("deploy-all", "Deploy all contracts", async () => {
 
   console.log("Deploying contracts with the account:", deployer.address);
   console.log("Account balance:", (await deployer.getBalance()).toString());
-
-  console.log("\nDeploying ECO token");
-  const ecoToken = await hre.run("deploy-eco");
-  console.log("Token address:", ecoToken.address);
 
   console.log("\nDeploying Device Registry");
   const deviceRegistry = await hre.run("deploy-device-registry");
