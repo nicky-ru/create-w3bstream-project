@@ -2,8 +2,9 @@ import fs from "fs-extra";
 import path from "path";
 import enquirer from "enquirer";
 import { Result } from "meow";
+import { Flags } from "./types";
 
-export async function normalizeArgs(cli: Result<any>) {
+export async function normalizeArgs(cli: Result<Flags>) {
   let directory = cli.input[0];
   if (!directory) {
     directory = await promptDir();

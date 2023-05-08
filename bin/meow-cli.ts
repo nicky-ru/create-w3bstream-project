@@ -1,6 +1,7 @@
-import meow from "meow";
+import meow, { Result } from "meow";
+import { Flags } from "./types";
 
-const cli = meow(
+const cli: Result<Flags> = meow(
   `
     Usage
       $ create-simulator-app <project-name> [options]
