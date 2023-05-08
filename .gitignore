@@ -1,3 +1,4 @@
 node_modules
 simulator-app
 .vscode
+dist
