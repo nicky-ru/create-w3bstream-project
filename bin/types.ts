@@ -20,3 +20,11 @@ export type Flags = {
     shortFlag: "n";
   };
 };
+
+export type Args = {
+  directory: string;
+  blockchain: boolean | undefined;
+  erc20: boolean | undefined;
+  erc721: boolean | undefined;
+  simulator: boolean | undefined;
+};
