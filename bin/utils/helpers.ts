@@ -61,6 +61,8 @@ export function copyBlockchainFeatures(
     );
     const projectSubdirPath = path.join(projectPath, "blockchain");
     copyBlockchainFeature(templateSubdirPath, projectSubdirPath);
+
+    addFeatureTaskToIndex(projectSubdirPath, feature);
   });
 }
 
@@ -68,7 +70,7 @@ function copyBlockchainFeature(
   templateSubdirPath: string,
   projectSubdirPath: string
 ) {
-  const subdirs = ["contracts", "test", "tasks"];
+  const subdirs = ["contracts", "test", "tasks", "deploy"];
 
   subdirs.forEach((subdir) => {
     const source = path.join(templateSubdirPath, subdir);
@@ -76,4 +78,14 @@ function copyBlockchainFeature(
 
     fs.copySync(source, destination);
   });
+}
+
+function addFeatureTaskToIndex(projectSubdirPath: string, feature: string) {
+  const taskIndex = path.join(projectSubdirPath, "tasks", "index.js");
+  if (feature === "erc20") {
+    fs.appendFileSync(taskIndex, `\nrequire("./erc20");`);
+  }
+  if (feature === "erc721") {
+    fs.appendFileSync(taskIndex, `\nrequire("./nft");`);
+  }
 }
