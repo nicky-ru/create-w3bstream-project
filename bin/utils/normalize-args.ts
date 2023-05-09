@@ -7,28 +7,16 @@ import { Flags } from "../types";
 
 export async function normalizeArgs(cli: Result<Flags>) {
   const directory = await normalizeDirectory(cli);
+  await normalizeSimulator(cli);
   await normalizeBlockchain(cli);
 
-  let erc20 = cli.flags.erc20;
-  let erc721 = cli.flags.erc721;
-
   if (cli.flags.blockchain) {
-    const blockchainFeatures = await normalizeBlockchainFeatures(cli);
-    erc20 = blockchainFeatures.erc20;
-    erc721 = blockchainFeatures.erc721;
-  }
-
-  let simulator = cli.flags.simulator;
-  if (!simulator) {
-    simulator = await promtConfirmation("simulator");
+    await normalizeBlockchainFeatures(cli);
   }
 
   return {
     directory,
-    blockchain: cli.flags.blockchain || false,
-    erc20,
-    erc721,
-    simulator,
+    ...cli.flags,
   };
 }
 
@@ -47,21 +35,19 @@ async function normalizeBlockchain(cli: Result<Flags>) {
 }
 
 async function normalizeBlockchainFeatures(cli: Result<Flags>) {
-  let erc20 = cli.flags.erc20;
-  let erc721 = cli.flags.erc721;
-
-  if (!erc20) {
-    erc20 = await promtConfirmation("erc20");
+  if (!cli.flags.erc20) {
+    cli.flags.erc20 = await promtConfirmation("erc20");
   }
 
-  if (!erc721) {
-    erc721 = await promtConfirmation("erc721");
+  if (!cli.flags.erc721) {
+    cli.flags.erc721 = await promtConfirmation("erc721");
   }
+}
 
-  return {
-    erc20,
-    erc721,
-  };
+async function normalizeSimulator(cli: Result<Flags>) {
+  if (!cli.flags.simulator) {
+    cli.flags.simulator = await promtConfirmation("simulator");
+  }
 }
 
 async function promptDir() {
