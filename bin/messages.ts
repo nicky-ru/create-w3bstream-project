@@ -5,7 +5,7 @@ import { Args } from "./types.js";
 export const appletInstructions = (args: Args) => `
 ${c.cyan("To get started with Applet, type the following commands:")}
 cd ${args.directory}/applet
-${c.bold("npm run start")}
+${c.bold("npm run asbuild")}
 `;
 
 export const simulatorInstructions = (args: Args) => `
