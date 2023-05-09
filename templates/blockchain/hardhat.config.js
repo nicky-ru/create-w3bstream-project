@@ -1,8 +1,10 @@
 /** @type import('hardhat/config').HardhatUserConfig */
 require("@nomicfoundation/hardhat-toolbox");
+require("@nomiclabs/hardhat-ethers");
+require('hardhat-deploy');
 require("dotenv").config();
 
-require("./tasks/deploy");
+require("./tasks");
 
 module.exports = {
   solidity: "0.8.17",
@@ -14,6 +16,11 @@ module.exports = {
     mainnet: {
       url: "https://babel-api.mainnet.iotex.io",
       accounts: [process.env.IOTEX_PRIVATE_KEY],
+    },
+  },
+  namedAccounts: {
+    deployer: {
+      default: 0,
     },
   },
 };
