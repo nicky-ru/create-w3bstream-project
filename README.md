@@ -1,15 +1,9 @@
-# create-w3bstream-applet-as
+# create-w3bstream-project
 
-A CLI tool to bootstrap a w3bstream applet written in AssemblyScript
+A CLI tool to bootstrap a w3bstream project
 
-## Default template with message validation and tests:
-
-```bash
-npx create-w3bstream-applet-as your-project-name
-```
-
-## Light template:
+## HIW
 
 ```bash
-npx create-w3bstream-applet-as your-project-name --template light
+npx create-w3bstream-project
 ```
