@@ -4,7 +4,7 @@ import { Flags } from "./types";
 const cli: Result<Flags> = meow(
   `
     Usage
-      $ create-simulator-app <project-name> [options]
+      $ npx create-w3bstream-project <project-name> [options]
   
     Options
       --blockchain, -b  Include a blockchain template
@@ -15,9 +15,9 @@ const cli: Result<Flags> = meow(
       --help            Display this message
   
     Examples
-      $ create-simulator-app my-w3bstream-app
-      $ create-simulator-app my-w3bstream-app --blockchain --simulator --applet
-      $ create-simulator-app my-w3bstream-app -b -s -a
+      $ npx create-w3bstream-project
+      $ npx create-w3bstream-project simple-grid-with-token --blockchain --erc20
+      $ npx create-w3bstream-project energy-meter-simulator -s
     `,
   {
     importMeta: import.meta,
