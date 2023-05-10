@@ -62,6 +62,11 @@ async function installDependencies(args: Args) {
 
 function logFinalMessage(args: Args) {
   console.log(`
+  ___   __     ____  ____  ____  __  __ _ 
+ / __) /  \\   (    \\(  __)(  _ \\(  )(  ( \\
+( (_ \\(  O )   ) D ( ) _)  ) __/ )( /    /
+ \\___/ \\__/   (____/(____)(__)  (__)\\_)__)
+
   🎉  Project ${c.bold(args.directory)} is ready!
   ${appletInstructions(args)}
   ${args.simulator ? simulatorInstructions(args) : ""}
