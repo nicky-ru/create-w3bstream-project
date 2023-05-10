@@ -1,12 +1,14 @@
 import meow, { Result } from "meow";
+import c from "chalk";
+
 import { Flags } from "./types";
 
 const cli: Result<Flags> = meow(
   `
-    Usage
+    ${c.bold("USAGE")}
       $ npx create-w3bstream-project <project-name> [options]
   
-    Options
+    ${c.bold("OPTIONS")}
       --blockchain, -b  Include a blockchain template
       --simulator, -s   Include a simulator template
       --applet, -a      Include an applet template
@@ -14,7 +16,7 @@ const cli: Result<Flags> = meow(
       --erc721, -n      Include an ERC721 template
       --help            Display this message
   
-    Examples
+    ${c.bold("EXAMPLES")}
       $ npx create-w3bstream-project
       $ npx create-w3bstream-project simple-grid-with-token --blockchain --erc20
       $ npx create-w3bstream-project energy-meter-simulator -s
