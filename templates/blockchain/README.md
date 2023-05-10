@@ -15,8 +15,20 @@ echo IOTEX_PRIVATE_KEY=<YOUR_PRIVATE_KEY> > .env
 npm run test
 ```
 
-### 3. Deploy
+### 3. Try deploy in hardhat environment
 
 ```bash
 npm run deploy
+```
+
+### 4. Deploy to testnet
+
+```bash
+npm run deploy:testnet
+```
+
+### 5. Run tasks
+
+```bash
+npx hardhat add-erc20-minter --address <MINTER_ADDRESS> --network testnet
 ```
