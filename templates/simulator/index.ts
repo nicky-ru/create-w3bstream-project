@@ -3,17 +3,11 @@ import { Simulator } from "@w3bstream/w3bstream-http-client-simulator";
 import dataGenerator from "./generator";
 import config from "./config";
 
-const { PUB_ID, PUB_TOKEN, W3BSTREAM_ENDPOINT, EVENT_TYPE, EVENT_ID } = config;
+const { PUB_TOKEN, W3BSTREAM_ENDPOINT} = config;
 
 const MSG_INTERVAL_SEC = 10;
 
-const simulator = new Simulator(
-  PUB_ID,
-  PUB_TOKEN,
-  EVENT_TYPE,
-  EVENT_ID,
-  W3BSTREAM_ENDPOINT
-);
+const simulator = new Simulator(PUB_TOKEN, W3BSTREAM_ENDPOINT);
 
 simulator.init();
 
